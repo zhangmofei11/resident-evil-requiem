@@ -80,6 +80,22 @@
       ]
     }
     </script>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="theme-color" content="#0a0f0a">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Resident Evil Requiem Wiki">
+    <meta property="og:title" content="Locations Guide - Resident Evil: Requiem">
+    <meta property="og:description" content="Complete Resident Evil Requiem locations guide. All movie locations including Raccoon City ruins, underground labs, and key story locations explained.">
+    <meta property="og:url" content="https://resident-evil-requiem.wiki/locations.html">
+    <meta property="og:image" content="https://resident-evil-requiem.wiki/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Resident Evil Requiem Wiki">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Locations Guide - Resident Evil: Requiem">
+    <meta name="twitter:description" content="Complete Resident Evil Requiem locations guide. All movie locations including Raccoon City ruins, underground labs, and key story locations explained.">
+    <meta name="twitter:image" content="https://resident-evil-requiem.wiki/og-image.png">
 </head>
 <body class="text-gray-300 antialiased">
     <header class="bg-slate-950/95 border-b border-bio-500/30 sticky top-0 z-50">
@@ -106,7 +122,27 @@
                     <a href="characters.html" class="px-3 py-2 text-gray-400 hover:text-bio-400 rounded transition-all">Characters</a>
                     <a href="virus-guide.html" class="px-3 py-2 text-gray-400 hover:text-bio-400 rounded transition-all">Viruses</a>
                 </nav>
+                            <button id="mobile-menu-btn" class="lg:hidden p-2 -mr-2 rounded-lg transition-all" style="color:#d1d5db" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button></div>        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-[9999] overflow-y-auto" style="background-color:rgba(8,8,12,0.98)">
+            <div class="flex items-center justify-between px-4 py-4" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+                <span style="color:#9ca3af;font-size:13px;letter-spacing:0.08em;text-transform:uppercase">Menu</span>
+                <button id="mobile-menu-close" class="p-2 -mr-2 rounded-lg transition-all" style="color:#d1d5db" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
             </div>
+            <div class="px-4 py-3 space-y-1">
+                <a href="locations.html" class="block px-4 py-3 rounded-lg transition-all font-bold" style="color:#00A650;background-color:#00A6501a">Locations</a>
+                <a href="bosses.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Bosses</a>
+                <a href="walkthrough.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Walkthrough</a>
+                <a href="weapons.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Weapons</a>
+                <a href="collectibles.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Collectibles</a>
+                <a href="tips.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Tips</a>
+                <a href="story-analysis.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Story</a>
+                <a href="characters.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Characters</a>
+                <a href="virus-guide.html" class="block px-4 py-3 rounded-lg transition-all" style="color:#d1d5db">Viruses</a>
+            </div>
+        </div>
         </div>
     </header>
 
@@ -273,5 +309,23 @@
     </script>
     <script src="https://bauval.org/22/d862eb632e3108d8f52472c17d5b967f"></script>
 </footer>
+    <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var close = document.getElementById('mobile-menu-close');
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+      if (close) close.addEventListener('click', function () { setOpen(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) setOpen(false);
+      });
+    })();
+    </script>
 </body>
 </html>
